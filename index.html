@@ -257,6 +257,42 @@
       display: block;
     }
 
+    .about-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: center;
+  gap: 4rem;
+}
+
+.about-images {
+  position: relative;
+  height: 420px;
+  width: 100%;
+}
+
+.profile-img {
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  border: 4px solid rgba(255,255,255,0.08);
+}
+
+.profile-main {
+  width: 320px;
+  height: 380px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.profile-secondary {
+  width: 200px;
+  height: 240px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
     /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
@@ -310,6 +346,35 @@ section h2 {
   margin: 2rem auto 0;
 }
 
+.about-layout {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.about-images {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.profile-main,
+.profile-secondary {
+  position: static;
+}
+
+.profile-main {
+  width: 260px;
+  height: 320px;
+}
+
+.profile-secondary {
+  width: 180px;
+  height: 220px;
+}
+
 }
   </style>
 </head>
@@ -350,6 +415,11 @@ section h2 {
           My work blends design and development to create scalable, engaging applications. I’m seeking
           opportunities in full-stack or front-end development where I can contribute to real-world products.
         </p>
+        <div class="about-images">
+          <img src="images/rs 2.jpg" alt="Regnal Shrestha portrait" class="profile-img profile-main">
+    
+          <img src="images/RS.jpg" alt="Regnal Shrestha working" class="profile-img profile-secondary">
+        </div>
       </div>
     </section>
 
