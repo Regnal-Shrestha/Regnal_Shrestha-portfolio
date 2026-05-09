@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regnal Shrestha | Full-Stack Web Developer</title>
+  <style>
+    :root {
+      --dark: #282F32;
+      --dark-card: #1F2528;
+      --red: #B02024;
+      --light: #ffffff;
+      --light-soft: #f4f4f4;
+      --text-dark: #282F32;
+      --text-light: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Sabon LT Pro", Georgia, serif;
+      background-color: var(--dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    body.light-mode {
+      background-color: var(--light);
+      color: var(--text-dark);
+    }
+
+    h1,
+    h2,
+    h3,
+    .logo {
+      font-family: Rockwell, Georgia, serif;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+    }
+
+    .logo-img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+    .theme-toggle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      background: transparent;
+      color: inherit;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background-color: rgba(176, 32, 36, 0.15);
+    }
+
+    .hero {
+      padding: 6rem 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      max-width: 850px;
+    }
+
+    .hero p {
+      margin-top: 1.5rem;
+      max-width: 650px;
+      font-size: 1.3rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.9rem 1.5rem;
+      border-radius: 1rem;
+      background-color: var(--red);
+      color: white;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.92;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    section h2 {
+      font-size: 2.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .about p {
+      max-width: 850px;
+      font-size: 1.15rem;
+    }
+
+    .skills-section,
+    footer {
+      background-color: var(--dark-card);
+      transition: background-color 0.4s ease;
+    }
+
+    body.light-mode .skills-section,
+    body.light-mode footer {
+      background-color: var(--light-soft);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--dark);
+      padding: 1.75rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.25s ease, background-color 0.4s ease;
+    }
+
+    body.light-mode .card {
+      background-color: white;
+      border: 1px solid #e7e7e7;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 1rem;
+    }
+
+    .accent {
+      color: var(--red);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .project-tech {
+      color: var(--red);
+      font-size: 0.95rem;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+
+    .project-link {
+      font-weight: bold;
+      border-bottom: 1px solid transparent;
+    }
+
+    .project-link:hover {
+      border-bottom-color: currentColor;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+
+    footer a {
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    @media (max-width: 850px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav,
+      .container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      .hero {
+        padding: 4rem 0;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+    }
+
+    /* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+nav {
+  padding: 1rem;
+}
+
+.logo-img {
+  height: 38px;
+}
+
+.grid {
+  grid-template-columns: 1fr;
+}
+
+.hero {
+  padding: 4rem 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+section h2 {
+  font-size: 2rem;
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+}
+
+.card {
+  padding: 1.5rem;
+}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo-container">
+        <img src="images/Horizontal RGB.png" alt="Regnal Shrestha Logo" class="logo-img">
+      </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">☀️</button>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Full-Stack Web Developer</h1>
+        <p>Building scalable, user-focused web applications with clean design and efficient code.</p>
+        <a class="btn" href="mailto:rshrest8@asu.edu">Contact Me</a>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>
+          I’m a full-stack web developer focused on building intuitive, user-centered digital experiences.
+          My work blends design and development to create scalable, engaging applications. I’m seeking
+          opportunities in full-stack or front-end development where I can contribute to real-world products.
+        </p>
+      </div>
+    </section>
+
+    <section class="skills-section">
+      <div class="container">
+        <h2>Skills &amp; Technologies</h2>
+        <div class="grid">
+          <article class="card">
+            <h3 class="accent">Frontend</h3>
+            <ul>
+              <li>• HTML</li>
+              <li>• CSS</li>
+              <li>• JavaScript</li>
+              <li>• Responsive Design</li>
+              <li>• UI/UX Principles</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="accent">Backend</h3>
+            <ul>
+              <li>• APIs</li>
+              <li>• Data Handling</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="accent">Tools</h3>
+            <ul>
+              <li>• Git &amp; GitHub</li>
+              <li>• VS Code</li>
+              <li>• Figma</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Honeyberry Hill Farms Website</h3>
+            <p>A responsive farm website promoting a smooth booking experience with clean navigation and engaging visuals.</p>
+            <p class="project-tech">HTML • CSS • JavaScript</p>
+            <a class="project-link" href="https://regnal-shrestha.github.io/finalProjectGIT418/" target="_blank" rel="noopener noreferrer">View Project →</a>
+          </article>
+
+          <article class="card">
+            <h3>Fibber Magees Pub Website</h3>
+            <p>A restaurant website focused on strong branding, intuitive navigation, and customer engagement.</p>
+            <p class="project-tech">HTML • CSS • JavaScript</p>
+            <a class="project-link" href="https://regnal-shrestha.github.io/finalProjectGIT480/" target="_blank" rel="noopener noreferrer">View Project →</a>
+          </article>
+
+          <article class="card">
+            <h3>MuzakMaker Streaming Platform</h3>
+            <p>A streaming media interface designed for playlist browsing and media discovery.</p>
+            <p class="project-tech">HTML</p>
+            <a class="project-link" href="https://regnal-shrestha.github.io/Streamingmedia/#yourplaylists" target="_blank" rel="noopener noreferrer">View Project →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Regnal Shrestha</p>
+    <p><a href="mailto:rshrest8@asu.edu">rshrest8@asu.edu</a></p>
+    <p><a href="https://github.com/Regnal-Shrestha" target="_blank" rel="noopener noreferrer">GitHub Portfolio</a></p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', function () {
+      body.classList.toggle('light-mode');
+
+      if (body.classList.contains('light-mode')) {
+        themeToggle.textContent = '🌙';
+      } else {
+        themeToggle.textContent = '☀️';
+      }
+    });
+  </script>
+</body>
+</html>
